@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -49,24 +50,17 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         Intent intent = getIntent();
         neighbour = intent.getParcelableExtra("neighbour");
 
-        String name = neighbour != null ? neighbour.getName() : "";
-        String avatarUrl = neighbour != null ? neighbour.getAvatarUrl() : "";
-        String address = neighbour != null ? neighbour.getAddress() : "";
-        String phoneNumber = neighbour != null ? neighbour.getPhoneNumber() : "";
-        String aboutMe = neighbour != null ? neighbour.getAboutMe() : "";
+        nameTextView.setText(neighbour.getName());
+        headerNameTextView.setText(neighbour.getName());
+        addressTextView.setText(neighbour.getAddress());
+        phoneNumberTextView.setText(neighbour.getPhoneNumber());
+        aboutMeTextView.setText(neighbour.getAboutMe());
 
+        String avatarUrl = neighbour.getAvatarUrl();
+        Glide.with(this)
+                .asBitmap()
+                .load(avatarUrl)
+                .into(avatarUrlImageView);
 
-        nameTextView.setText(name);
-        headerNameTextView.setText(name);
-        addressTextView.setText(address);
-        phoneNumberTextView.setText(phoneNumber);
-        aboutMeTextView.setText(aboutMe);
-
-        favoriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("DetailNeighbour", "onClick");
-            }
-        });
     }
 }
