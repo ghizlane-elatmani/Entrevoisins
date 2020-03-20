@@ -32,7 +32,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     private static final String TAG = "MyNeighbourRecyclerViewAdapter";
     private Context mContext;
 
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
+    public MyNeighbourRecyclerViewAdapter(Context context, List<Neighbour> items) {
+        mContext = context;
         mNeighbours = items;
     }
 
@@ -62,6 +63,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("MyNeighbour","OnClick: Intent");
                 Intent intent = new Intent(mContext, DetailNeighbourActivity.class);
                 intent.putExtra("neighbour", mNeighbours.get(position));
                 mContext.startActivity(intent);

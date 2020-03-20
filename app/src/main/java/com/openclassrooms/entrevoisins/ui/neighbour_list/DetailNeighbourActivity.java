@@ -18,7 +18,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         if (intent != null){
             Neighbour neighbour = intent.getParcelableExtra("neighbour");
             if (neighbour != null){
-                // tu peux manipuler user !
+                //
             }
         }
     }
