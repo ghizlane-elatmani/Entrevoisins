@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
@@ -40,6 +41,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     TextView aboutMeTextView;
 
     Neighbour neighbour;
+    boolean isFavorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,5 +64,19 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 .load(avatarUrl)
                 .into(avatarUrlImageView);
 
+
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isFavorite = !isFavorite;
+
+                if(isFavorite == true) {
+                    favoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
+                } else {
+                    favoriteButton.setImageResource(R.drawable.ic_star_border_black_24dp);
+                }
+            }
+        });
     }
+
 }
