@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,8 +83,10 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 if(isFavorite == true) {
                     favoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
                     //intent
+                    DummyNeighbourApiService.favoriteList.add(neighbour);
                 } else {
                     favoriteButton.setImageResource(R.drawable.ic_star_border_black_24dp);
+                    DummyNeighbourApiService.favoriteList.remove(neighbour);
                 }
             }
         });
@@ -93,6 +96,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
+
 
 
     @Override
