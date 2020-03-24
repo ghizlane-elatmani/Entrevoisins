@@ -21,7 +21,27 @@ public class DetailNeighbourTest {
     }
 
     /**
-     *
+     * Test vérifiant qu'au démarrage de ce nouvel écran, le TextView indiquant le nom de l'utilisateur en question est bien rempli
      */
+    @Test
+    public void nameTextView_shouldHasTheNameOfTheNeighbour(){
+
+    }
+
+    /**
+     * Test vérifiant qu'au clic sur le bouton de suppression, la liste d'utilisateurs compte bien un utilisateur en moins
+     */
+    @Test
+    public void deleteFavoriteButton_listOfFavoriteNeighbourHasOneLessUser(){
+
+    }
+
+    /**
+     * test vérifiant que l'onglet Favoris n'affiche que les voisins marqués comme favoris
+     */
+    @Test
+    public void favoriteButton_tabFavoriteHasOnlyNeighboursMarkedAsFavorites(){
+
+    }
 
 }
