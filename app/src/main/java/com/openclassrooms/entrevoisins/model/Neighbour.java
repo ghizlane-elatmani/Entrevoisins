@@ -140,4 +140,16 @@ public class Neighbour implements Parcelable {
         parcel.writeString(phoneNumber);
         parcel.writeString(aboutMe);
     }
+
+    @Override
+    public String toString() {
+        return "Neighbour{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                '}';
+    }
 }

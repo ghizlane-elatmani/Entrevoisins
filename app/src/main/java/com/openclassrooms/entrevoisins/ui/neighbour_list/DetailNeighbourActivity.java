@@ -82,7 +82,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
                 if(isFavorite == true) {
                     favoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
-                    //intent
                     DummyNeighbourApiService.favoriteList.add(neighbour);
                 } else {
                     favoriteButton.setImageResource(R.drawable.ic_star_border_black_24dp);
