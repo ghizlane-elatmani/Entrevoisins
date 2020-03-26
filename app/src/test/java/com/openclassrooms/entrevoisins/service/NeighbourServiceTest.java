@@ -40,4 +40,16 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+    @Test
+    public void getFavoriteNeighboursWithSuccess() {
+        //TODO
+    }
+
+    @Test
+    public void deleteFavoriteNeighbourWithSuccess() {
+        Neighbour neighbourToDelete = service.getFavoritesNeighbours().get(0);
+        service.deleteFavoriteNeighbour(neighbourToDelete);
+        assertFalse(service.getFavoritesNeighbours().contains(neighbourToDelete));
+    }
 }

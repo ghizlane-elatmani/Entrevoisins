@@ -16,9 +16,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -51,7 +55,7 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_shouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(withId(R.id.list_neighbours))
                 .check(matches(hasMinimumChildCount(1)));
     }
 
@@ -61,11 +65,49 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
+
+
+
+
+    /**
+     * When you click an item, detailNeighbourActivity started
+     */
+    @Test
+    public void detailNeighbourActivity_hasToBeRunWhenYouClickOnAnItem(){
+        // When perform a click on an item
+        onView(withId(R.id.list_neighbours))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+
+        // Then : DetailNeighbourActivity started
+        onView(withId(R.id.detail_neighbour_parent_layout));
+    }
+
+    /**
+     * Check if the TextView is filled
+     */
+    @Test
+    public void nameTextView_shouldHasTheNameOfTheNeighbour(){
+        detailNeighbourActivity_hasToBeRunWhenYouClickOnAnItem();
+
+        //Check if the TextView is filled
+        onView(withId(R.id.nameTextView))
+                .check(matches(withText("Jack")));
+    }
+
+    /**
+     * Check if the favorite tab show only neighbors marked as favorites
+     */
+    @Test
+    public void favoriteTab_showOnlyListOfFavoriteNeighbour(){
+//        onView(withId(R.id.favoriteTabItem))
+//                .perform(click());
+    }
+
 }
