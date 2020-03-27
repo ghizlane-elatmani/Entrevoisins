@@ -26,6 +26,12 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         return favoriteList;
     }
 
+    @Override
+    public void addFavoriteNeighbour(Neighbour neighbour) {
+        favoriteList.add(neighbour);
+    }
+
+
     /**
      * {@inheritDoc}
      */
