@@ -22,6 +22,7 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getFavoritesNeighbours();
 
+
     /**
      * Add a favorite neighbour
      * @param neighbour

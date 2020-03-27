@@ -83,7 +83,7 @@ public class NeighboursListTest {
     public void detailNeighbourActivity_hasToBeRunWhenYouClickOnAnItem(){
         // When perform a click on an item
         onView(withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
 
         // Then : DetailNeighbourActivity started
         onView(withId(R.id.detail_neighbour_parent_layout));
@@ -94,7 +94,12 @@ public class NeighboursListTest {
      */
     @Test
     public void nameTextView_shouldHasTheNameOfTheNeighbour(){
-        detailNeighbourActivity_hasToBeRunWhenYouClickOnAnItem();
+        // When perform a click on an item
+        onView(withId(R.id.list_neighbours))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+
+        // Then : DetailNeighbourActivity started
+        onView(withId(R.id.detail_neighbour_parent_layout));
 
         //Check if the TextView is filled
         onView(withId(R.id.nameTextView))
@@ -106,8 +111,7 @@ public class NeighboursListTest {
      */
     @Test
     public void favoriteTab_showOnlyListOfFavoriteNeighbour(){
-//        onView(withId(R.id.favoriteTabItem))
-//                .perform(click());
+        //TODO
     }
 
 }

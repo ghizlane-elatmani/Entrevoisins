@@ -17,8 +17,10 @@ import android.support.v7.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,10 +54,14 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     Neighbour neighbour;
     boolean isFavorite;
 
+
+    private NeighbourApiService mApiService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_neighbour);
+        mApiService = DI.getNeighbourApiService();
         ButterKnife.bind(this);
 
         //Intent
@@ -82,10 +88,10 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
                 if(isFavorite == true) {
                     favoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
-                    DummyNeighbourApiService.favoriteList.add(neighbour);
+                    mApiService.addFavoriteNeighbour(neighbour);
                 } else {
                     favoriteButton.setImageResource(R.drawable.ic_star_border_black_24dp);
-                    DummyNeighbourApiService.favoriteList.remove(neighbour);
+                    mApiService.deleteFavoriteNeighbour(neighbour);
                 }
             }
         });
