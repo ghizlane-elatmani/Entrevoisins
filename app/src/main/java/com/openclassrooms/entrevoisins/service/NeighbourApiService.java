@@ -47,4 +47,16 @@ public interface NeighbourApiService {
      * @param neighbour
      */
     void createNeighbour(Neighbour neighbour);
+
+    /**
+     * return neighbour by position
+     * @param position
+     */
+    Neighbour getNeighbourByPosition(int position);
+
+    /**
+     * return favorite neighbour by position
+     * @param position
+     */
+    Neighbour getFavoriteNeighbourByPosition(int position);
 }

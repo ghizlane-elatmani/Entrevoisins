@@ -66,7 +66,8 @@ public class MyFavoriteNeighbourRecyclerViewAdapter extends RecyclerView.Adapter
             public void onClick(View v) {
                 Log.i("MyNeighbour","OnClick: Intent");
                 Intent intent = new Intent(mContext, DetailNeighbourActivity.class);
-                intent.putExtra("neighbour", favoriteNeighbours.get(position));
+                intent.putExtra("myNeighbour", "myFavoriteNeighbour");
+                intent.putExtra("favoriteneighbour", position);
                 mContext.startActivity(intent);
             }
         });

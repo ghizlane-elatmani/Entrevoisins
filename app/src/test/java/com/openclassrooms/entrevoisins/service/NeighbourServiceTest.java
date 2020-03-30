@@ -58,6 +58,11 @@ public class NeighbourServiceTest {
         assertFalse(service.getFavoritesNeighbours().isEmpty());
     }
 
+//    @Test
+//    public void getNeighbourByPosition(){
+//        //TODO
+//    }
+
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
         Neighbour neighbour = service.getNeighbours().get(0);

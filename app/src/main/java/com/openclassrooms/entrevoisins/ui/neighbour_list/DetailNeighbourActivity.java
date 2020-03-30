@@ -52,6 +52,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     Toolbar mToolBar;
 
     Neighbour neighbour;
+    String whichOne = "";
     boolean isFavorite;
 
 
@@ -66,7 +67,15 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         //Intent
         Intent intent = getIntent();
-        neighbour = intent.getParcelableExtra("neighbour");
+        whichOne = intent.getStringExtra("myNeighbour");
+
+        if(whichOne.equals("myNeighbour")) {
+            int position = intent.getIntExtra("neighbour", 0);
+            neighbour = mApiService.getNeighbourByPosition(position);
+        } else {
+            int position = intent.getIntExtra("favoriteneighbour", 0);
+            neighbour = mApiService.getFavoriteNeighbourByPosition(position);
+        }
 
         nameTextView.setText(neighbour.getName());
         headerNameTextView.setText(neighbour.getName());

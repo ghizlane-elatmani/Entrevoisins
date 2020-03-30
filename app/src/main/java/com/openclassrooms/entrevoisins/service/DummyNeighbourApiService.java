@@ -53,4 +53,14 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public void createNeighbour(Neighbour neighbour) {
         neighbours.add(neighbour);
     }
+
+    @Override
+    public Neighbour getNeighbourByPosition(int position) {
+        return getNeighbours().get(position);
+    }
+
+    @Override
+    public Neighbour getFavoriteNeighbourByPosition(int position) {
+        return getFavoritesNeighbours().get(position);
+    }
 }
