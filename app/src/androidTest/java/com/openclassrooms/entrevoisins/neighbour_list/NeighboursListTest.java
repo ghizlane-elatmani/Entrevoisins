@@ -17,10 +17,12 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
@@ -111,7 +113,31 @@ public class NeighboursListTest {
      */
     @Test
     public void favoriteTab_showOnlyListOfFavoriteNeighbour(){
-        //TODO
+        onView(withId(R.id.list_neighbours))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+
+        onView(withId(R.id.detail_neighbour_parent_layout));
+
+        onView(withId(R.id.favoriteButton))
+                .perform(click());
+
+        onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
+
+        onView(withId(R.id.list_neighbours))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(2, click()));
+
+        onView(withId(R.id.detail_neighbour_parent_layout));
+
+        onView(withId(R.id.favoriteButton))
+                .perform(click());
+
+        onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
+
+        onView(withId(R.id.container))
+                .perform(swipeLeft());
+
+        onView(withId(R.id.list_favorite_neighbours))
+                .check(withItemCount(2));
     }
 
 }

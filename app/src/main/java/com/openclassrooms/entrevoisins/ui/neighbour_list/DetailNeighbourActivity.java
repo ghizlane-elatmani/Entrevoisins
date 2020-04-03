@@ -48,7 +48,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.aboutMeTextView)
     TextView aboutMeTextView;
 
-    @BindView(R.id.toolbar)
+    @BindView(R.id.toolbar_detailNeighbour)
     Toolbar mToolBar;
 
     Neighbour neighbour;
@@ -117,11 +117,11 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                Intent homeIntent = new Intent(this, ListNeighbourActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
         }
+        return (super.onOptionsItemSelected(item));
     }
 
 }

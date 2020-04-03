@@ -13,6 +13,7 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -58,10 +59,23 @@ public class NeighbourServiceTest {
         assertFalse(service.getFavoritesNeighbours().isEmpty());
     }
 
-//    @Test
-//    public void getNeighbourByPosition(){
-//        //TODO
-//    }
+    @Test
+    public void getNeighbourByPositionWithSuccess(){
+        int position = 1;
+        Neighbour expectedneighbour = service.getNeighbourByPosition(position);
+        Neighbour neighbour = service.getNeighbours().get(position);
+        assertEquals(expectedneighbour.getName(), neighbour.getName());
+    }
+
+    @Test
+    public void getFavoriteNeighbourByPositionWithSucces(){
+        int position = 0;
+        Neighbour neighbour = service.getNeighbours().get(position);
+        service.addFavoriteNeighbour(neighbour);
+        Neighbour expectedneighbour = service.getFavoriteNeighbourByPosition(position);
+        Neighbour favoriteneighbour = service.getFavoritesNeighbours().get(position);
+        assertEquals(expectedneighbour.getName(), favoriteneighbour.getName());
+    }
 
     @Test
     public void deleteFavoriteNeighbourWithSuccess() {
