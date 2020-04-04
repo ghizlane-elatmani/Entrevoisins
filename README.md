@@ -8,16 +8,16 @@ Prérequis:
 <br/> L’ide que l’on doit installer est :Android Studio
 
 Installation : 
-→ Télécharger le dossier zip
-→ Ouvrir Android Studio
-→ Cliquez sur Open an existing Android Studio Project
-→ Indiquez le chemin où se trouve le projet, là où on a dézipper le dossier
-→ Ouvrez le et la configuration se fera automatiquement
-→ Si cela vous ai demandé, télécharger les versions du projet et non les plus récentes sinon il y aura un problème de compatibilité
-→ En haut de l’ide, vous indiquerez qu’est-ce que vous voulez exécutez (app) et avec quel appareil (émulateur ou un téléphone branché à votre ordi) puis vous cliquez sur l’icône vert Run
+<br/>→ Télécharger le dossier zip
+<br/>→ Ouvrir Android Studio
+<br/>→ Cliquez sur Open an existing Android Studio Project
+<br/>→ Indiquez le chemin où se trouve le projet, là où on a dézipper le dossier
+<br/>→ Ouvrez le et la configuration se fera automatiquement
+<br/>→ Si cela vous ai demandé, télécharger les versions du projet et non les plus récentes sinon il y aura un problème de compatibilité
+<br/>→ En haut de l’ide, vous indiquerez qu’est-ce que vous voulez exécutez (app) et avec quel appareil (émulateur ou un téléphone branché à votre ordi) puis vous cliquez sur l’icône vert Run
 
 Exécuter les tests : 
-Pour exécuter les tests, vous cliquez sur Project tout à droite, vous vous positionnez sur le test que vous voulez exécuter, vous faites un clique droit et vous cliquez sur "Run testEnQuestion"
+<br/>Pour exécuter les tests, vous cliquez sur Project tout à droite, vous vous positionnez sur le test que vous voulez exécuter, vous faites un clique droit et vous cliquez sur "Run testEnQuestion"
 
 Built With
-    • Gradle - Dependency Management
+   <br/> • Gradle - Dependency Management
